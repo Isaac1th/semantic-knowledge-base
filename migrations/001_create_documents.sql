@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS documents (
+  id UUID PRIMARY KEY,
+  title TEXT NOT NULL,
+  content TEXT NOT NULL,
+  category TEXT,
+  tags TEXT[] NOT NULL DEFAULT '{}',
+  content_hash TEXT NOT NULL DEFAULT '',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);

@@ -1,0 +1,25 @@
+{
+  "name": "semantic-knowledge-base",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Semantic Knowledge Base — learn embeddings and vector search",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "dev:api": "npm run dev -w @skb/api",
+    "dev:web": "npm run dev -w @skb/web",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "db:up": "docker compose -f docker/docker-compose.yml up -d",
+    "db:down": "docker compose -f docker/docker-compose.yml down",
+    "db:migrate": "npm run db:migrate -w @skb/api",
+    "db:seed": "npm run db:seed -w @skb/api",
+    "db:smoke": "npm run db:smoke -w @skb/api"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

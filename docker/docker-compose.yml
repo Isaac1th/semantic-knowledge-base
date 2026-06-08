@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: skb-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: skb
+      POSTGRES_PASSWORD: skb
+      POSTGRES_DB: semantic_kb
+    volumes:
+      - skb_postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U skb -d semantic_kb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  skb_postgres_data:
