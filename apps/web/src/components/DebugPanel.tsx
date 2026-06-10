@@ -11,7 +11,7 @@ export function DebugPanel({ response, mode }: DebugPanelProps) {
   }
 
   return (
-    <section style={{ marginTop: "1.5rem", padding: "1rem", background: "#f5f5f5" }}>
+    <section className="panel">
       <h3>Debug panel</h3>
       <p>
         <strong>Query:</strong> {response.query}
