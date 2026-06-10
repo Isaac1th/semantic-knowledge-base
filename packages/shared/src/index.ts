@@ -16,3 +16,10 @@ export {
 } from "./schemas/document.js";
 
 export { apiErrorSchema, type ApiErrorBody } from "./schemas/error.js";
+
+export {
+  cosineSimilarity,
+  dotProduct,
+  euclideanDistance,
+  validateDimensions,
+} from "./math/index.js";
