@@ -195,10 +195,18 @@ ANN indexes (HNSW/IVFFlat) are introduced after baseline exact search is validat
 | 4. Embedding providers | Complete |
 | 5. Document indexing | Complete |
 | 6. Search | Complete |
-| 7. Hybrid search | Planned |
+| 7. Hybrid search | Complete |
 | 8. React interface | Planned |
 | 9. Evaluation metrics | Planned |
 | 10. Review & RAG path | Planned |
+
+## Hybrid search limitations
+
+The hybrid endpoint uses **per-request min-max normalization** followed by a weighted sum (`vectorWeight * normVector + keywordWeight * normKeyword`). This is easy to understand but imperfect:
+
+- Vector and keyword scores live on different scales; normalization is a rough alignment hack.
+- If one side returns few or no hits, combined ranking can be biased.
+- Production systems often prefer **Reciprocal Rank Fusion (RRF)**, learned re-rankers, or cross-encoders instead.
 
 ## Common vector-search mistakes
 

@@ -20,8 +20,10 @@ export { apiErrorSchema, type ApiErrorBody } from "./schemas/error.js";
 export {
   chunkTextSchema,
   compareTextsSchema,
+  hybridSearchSchema,
   keywordSearchSchema,
   vectorSearchSchema,
+  type HybridSearchInput,
   type KeywordSearchInput,
   type VectorSearchInput,
 } from "./schemas/search.js";

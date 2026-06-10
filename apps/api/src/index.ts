@@ -8,6 +8,7 @@ import { errorHandler } from "./middleware/error-handler.js";
 import { createEmbeddingProvider } from "./modules/embeddings/index.js";
 import { ExperimentsService } from "./modules/experiments/service.js";
 import { createDocumentService } from "./modules/documents/index.js";
+import { HybridSearchService } from "./modules/hybrid-search/service.js";
 import { KeywordSearchService } from "./modules/keyword-search/service.js";
 import { VectorSearchService } from "./modules/vector-search/service.js";
 import { createDocumentsRouter } from "./routes/documents.js";
@@ -26,6 +27,10 @@ const embeddingProvider = createEmbeddingProvider(env);
 const documentService = createDocumentService(embeddingProvider);
 const keywordSearchService = new KeywordSearchService(pool);
 const vectorSearchService = new VectorSearchService(pool, embeddingProvider);
+const hybridSearchService = new HybridSearchService(
+  keywordSearchService,
+  vectorSearchService,
+);
 const experimentsService = new ExperimentsService(pool, embeddingProvider);
 
 app.get("/health", (_req, res) => {
@@ -38,6 +43,7 @@ app.use(
   createSearchRouter({
     keywordSearch: keywordSearchService,
     vectorSearch: vectorSearchService,
+    hybridSearch: hybridSearchService,
     experiments: experimentsService,
   }),
 );

@@ -17,8 +17,14 @@ export const vectorSearchSchema = metadataFiltersSchema.extend({
   embeddingModel: z.string().trim().optional(),
 });
 
+export const hybridSearchSchema = vectorSearchSchema.extend({
+  vectorWeight: z.coerce.number().min(0).max(1).default(0.7),
+  keywordWeight: z.coerce.number().min(0).max(1).default(0.3),
+});
+
 export type KeywordSearchInput = z.infer<typeof keywordSearchSchema>;
 export type VectorSearchInput = z.infer<typeof vectorSearchSchema>;
+export type HybridSearchInput = z.infer<typeof hybridSearchSchema>;
 
 export const compareTextsSchema = z.object({
   textA: z.string().min(1),
