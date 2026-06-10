@@ -38,7 +38,7 @@ export function ExperimentsPage() {
 
       <article style={{ marginBottom: "2rem" }}>
         <h3>Experiment 2: Similarity comparison</h3>
-        <div style={{ display: "grid", gap: "0.75rem", maxWidth: "720px" }}>
+        <div className="grid-form">
           <textarea value={compareA} onChange={(e) => setCompareA(e.target.value)} rows={3} />
           <textarea value={compareB} onChange={(e) => setCompareB(e.target.value)} rows={3} />
           <button
@@ -56,15 +56,13 @@ export function ExperimentsPage() {
           </button>
         </div>
         {compareResult && (
-          <pre style={{ background: "#f5f5f5", padding: "1rem", overflow: "auto" }}>
-            {JSON.stringify(compareResult, null, 2)}
-          </pre>
+          <pre>{JSON.stringify(compareResult, null, 2)}</pre>
         )}
       </article>
 
       <article style={{ marginBottom: "2rem" }}>
         <h3>Experiment 3: Chunking strategies</h3>
-        <div style={{ display: "grid", gap: "0.75rem", maxWidth: "720px" }}>
+        <div className="grid-form">
           <textarea value={chunkText} onChange={(e) => setChunkText(e.target.value)} rows={6} />
           <label>
             Strategy
@@ -112,9 +110,7 @@ export function ExperimentsPage() {
           </button>
         </div>
         {chunkPreview && (
-          <pre style={{ background: "#f5f5f5", padding: "1rem", overflow: "auto" }}>
-            {JSON.stringify(chunkPreview, null, 2)}
-          </pre>
+          <pre>{JSON.stringify(chunkPreview, null, 2)}</pre>
         )}
       </article>
 
@@ -135,7 +131,7 @@ export function ExperimentsPage() {
         </p>
       </article>
 
-      {error && <p style={{ color: "crimson" }}>{error}</p>}
+      {error && <p className="error">{error}</p>}
     </section>
   );
 }

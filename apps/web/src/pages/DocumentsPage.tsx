@@ -20,7 +20,7 @@ export function DocumentsPage() {
   return (
     <section>
       <h2>Documents</h2>
-      {error && <p style={{ color: "crimson" }}>{error}</p>}
+      {error && <p className="error">{error}</p>}
 
       <DocumentForm
         {...(editing ? { initial: editing } : {})}
@@ -40,7 +40,7 @@ export function DocumentsPage() {
         {documents.map((document) => (
           <li key={document.id} style={{ marginBottom: "1rem" }}>
             <strong>{document.title}</strong> — {document.chunkCount} chunks
-            <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.5rem" }}>
+            <div className="button-row" style={{ marginTop: "0.5rem" }}>
               <button type="button" onClick={() => setEditing(document)}>
                 Edit
               </button>

@@ -63,7 +63,7 @@ export function SearchPage() {
       <h2>Search</h2>
       <p>Compare keyword, vector, and hybrid retrieval side by side.</p>
 
-      <div style={{ display: "grid", gap: "0.75rem", maxWidth: "720px" }}>
+      <div className="grid-form">
         <label>
           Query
           <input value={query} onChange={(e) => setQuery(e.target.value)} />
@@ -108,7 +108,7 @@ export function SearchPage() {
         </label>
       </div>
 
-      <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>
+      <div className="button-row" style={{ marginTop: "1rem" }}>
         <button type="button" disabled={loading} onClick={() => runSearch("keyword")}>
           Keyword
         </button>
@@ -120,7 +120,7 @@ export function SearchPage() {
         </button>
       </div>
 
-      {error && <p style={{ color: "crimson" }}>{error}</p>}
+      {error && <p className="error">{error}</p>}
       {loading && <p>Searching...</p>}
 
       <DebugPanel response={response} mode={mode} />

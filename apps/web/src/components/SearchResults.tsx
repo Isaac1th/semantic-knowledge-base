@@ -11,17 +11,9 @@ export function SearchResults({ results, mode }: SearchResultsProps) {
   }
 
   return (
-    <ul style={{ listStyle: "none", padding: 0 }}>
+    <ul className="result-list">
       {results.map((result) => (
-        <li
-          key={`${result.documentId}-${result.chunkIndex}`}
-          style={{
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            padding: "1rem",
-            marginBottom: "0.75rem",
-          }}
-        >
+        <li key={`${result.documentId}-${result.chunkIndex}`} className="result-card">
           <p>
             <strong>{result.documentTitle}</strong> (chunk {result.chunkIndex})
           </p>

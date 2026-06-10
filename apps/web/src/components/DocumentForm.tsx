@@ -39,7 +39,7 @@ export function DocumentForm({ initial, onSubmit, onCancel }: DocumentFormProps)
           setSaving(false);
         }
       }}
-      style={{ display: "grid", gap: "0.75rem", maxWidth: "720px" }}
+      className="grid-form"
     >
       <label>
         Title
@@ -62,7 +62,7 @@ export function DocumentForm({ initial, onSubmit, onCancel }: DocumentFormProps)
         Tags (comma-separated)
         <input value={tags} onChange={(e) => setTags(e.target.value)} />
       </label>
-      <div style={{ display: "flex", gap: "0.5rem" }}>
+      <div className="button-row">
         <button type="submit" disabled={saving}>
           {saving ? "Saving..." : initial ? "Update" : "Create"}
         </button>

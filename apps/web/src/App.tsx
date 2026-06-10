@@ -10,11 +10,11 @@ export function App() {
   const [page, setPage] = useState<Page>("documents");
 
   return (
-    <main style={{ fontFamily: "system-ui, sans-serif", padding: "2rem", maxWidth: "960px" }}>
+    <main className="app">
       <h1>Semantic Knowledge Base</h1>
       <p>Learning interface for embeddings, chunking, and vector search.</p>
 
-      <nav style={{ display: "flex", gap: "0.75rem", marginBottom: "2rem" }}>
+      <nav className="nav">
         <button type="button" onClick={() => setPage("documents")}>
           Documents
         </button>
