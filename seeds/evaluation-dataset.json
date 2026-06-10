@@ -1,0 +1,37 @@
+{
+  "description": "Small labeled dataset for learning retrieval metrics. Document IDs match seeds/sample-documents.sql.",
+  "queries": [
+    {
+      "id": "q1-password-reset",
+      "query": "I forgot my password",
+      "relevantDocumentIds": [
+        "11111111-1111-1111-1111-111111111101",
+        "11111111-1111-1111-1111-111111111102"
+      ],
+      "irrelevantDocumentIds": [
+        "11111111-1111-1111-1111-111111111103"
+      ]
+    },
+    {
+      "id": "q2-login-credentials",
+      "query": "change my login credentials",
+      "relevantDocumentIds": [
+        "11111111-1111-1111-1111-111111111102"
+      ],
+      "irrelevantDocumentIds": [
+        "11111111-1111-1111-1111-111111111103"
+      ]
+    },
+    {
+      "id": "q3-weather",
+      "query": "sunny weather forecast",
+      "relevantDocumentIds": [
+        "11111111-1111-1111-1111-111111111103"
+      ],
+      "irrelevantDocumentIds": [
+        "11111111-1111-1111-1111-111111111101",
+        "11111111-1111-1111-1111-111111111102"
+      ]
+    }
+  ]
+}
