@@ -8,10 +8,12 @@ import { errorHandler } from "./middleware/error-handler.js";
 import { createEmbeddingProvider } from "./modules/embeddings/index.js";
 import { ExperimentsService } from "./modules/experiments/service.js";
 import { createDocumentService } from "./modules/documents/index.js";
+import { EvaluationService } from "./modules/evaluation/service.js";
 import { HybridSearchService } from "./modules/hybrid-search/service.js";
 import { KeywordSearchService } from "./modules/keyword-search/service.js";
 import { VectorSearchService } from "./modules/vector-search/service.js";
 import { createDocumentsRouter } from "./routes/documents.js";
+import { createEvaluationRouter } from "./routes/evaluation.js";
 import {
   createExperimentsRouter,
   createSearchRouter,
@@ -45,6 +47,7 @@ const hybridSearchService = new HybridSearchService(
   vectorSearchService,
 );
 const experimentsService = new ExperimentsService(pool, embeddingProvider);
+const evaluationService = new EvaluationService(vectorSearchService);
 
 app.get("/health", (_req, res) => {
   res.json({ status: "ok", service: "semantic-knowledge-base-api" });
@@ -61,6 +64,7 @@ app.use(
   }),
 );
 app.use("/api/experiments", createExperimentsRouter(experimentsService));
+app.use("/api/evaluation", createEvaluationRouter(evaluationService));
 
 app.use(errorHandler);
 

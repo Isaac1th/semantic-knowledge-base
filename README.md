@@ -197,8 +197,18 @@ ANN indexes (HNSW/IVFFlat) are introduced after baseline exact search is validat
 | 6. Search | Complete |
 | 7. Hybrid search | Complete |
 | 8. React interface | Complete |
-| 9. Evaluation metrics | Planned |
+| 9. Evaluation metrics | Complete |
 | 10. Review & RAG path | Planned |
+
+## Evaluation metrics
+
+The evaluation endpoint (`POST /api/evaluation/run`) runs vector search against [`seeds/evaluation-dataset.json`](seeds/evaluation-dataset.json) and reports:
+
+- **Precision@K** — Of the top K results, what fraction are relevant?
+- **Recall@K** — Of all relevant documents, what fraction appear in the top K?
+- **Mean Reciprocal Rank (MRR)** — How highly ranked is the first relevant hit? (1/rank, averaged across queries)
+
+These metrics are educational baselines on a tiny dataset, not production benchmarks.
 
 ## Hybrid search limitations
 
