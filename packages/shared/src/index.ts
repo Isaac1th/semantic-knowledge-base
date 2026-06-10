@@ -18,6 +18,17 @@ export {
 export { apiErrorSchema, type ApiErrorBody } from "./schemas/error.js";
 
 export {
+  chunkTextSchema,
+  compareTextsSchema,
+  keywordSearchSchema,
+  vectorSearchSchema,
+  type KeywordSearchInput,
+  type VectorSearchInput,
+} from "./schemas/search.js";
+
+export type { SearchDebugInfo, SearchResultItem } from "./types/search.js";
+
+export {
   cosineSimilarity,
   dotProduct,
   euclideanDistance,
