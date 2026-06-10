@@ -192,7 +192,7 @@ ANN indexes (HNSW/IVFFlat) are introduced after baseline exact search is validat
 | 1. Architecture & design | Complete |
 | 2. Local infrastructure | Complete |
 | 3. Vector mathematics | Planned |
-| 4. Embedding providers | Planned |
+| 4. Embedding providers | Complete |
 | 5. Document indexing | Planned |
 | 6. Search | Planned |
 | 7. Hybrid search | Planned |
