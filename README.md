@@ -196,7 +196,7 @@ ANN indexes (HNSW/IVFFlat) are introduced after baseline exact search is validat
 | 5. Document indexing | Complete |
 | 6. Search | Complete |
 | 7. Hybrid search | Complete |
-| 8. React interface | Planned |
+| 8. React interface | Complete |
 | 9. Evaluation metrics | Planned |
 | 10. Review & RAG path | Planned |
 
